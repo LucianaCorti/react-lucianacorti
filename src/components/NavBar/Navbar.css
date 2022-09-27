@@ -2,15 +2,14 @@
   max-width: 6rem;
 }
 
-.imgCarrito{
-    max-width: 2rem;
-}
-
 .navbar-expand-lg .navbar-collapse {
   display: flex !important;
   flex-basis: auto;
   flex-direction: row-reverse;
   align-items: stretch;
   justify-content: flex-start;
-  background-color: #e9dac1;
+}
+
+.container-fluid{
+  background-color: #F0F0CB;
 }
