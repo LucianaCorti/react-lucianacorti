@@ -1,5 +1,6 @@
 import "./Navbar.css";
 import CartWidget from "../CardWidget/CartWidget";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const src =
@@ -7,7 +8,10 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg">
       <a className="navbar-brand" href="#">
-        <img className="imgLogo" src={src} />
+        <Link to="/">
+          {" "}
+          <img className="imgLogo" src={src} />
+        </Link>
       </a>
       <div className="container-fluid">
         <button
@@ -24,31 +28,37 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <button
-                type="button"
-                className="btn btn-light p-1 m-2 btn-outline-dark"
-                href="#"
-              >
-                Inicio
-              </button>
+              <Link to="/">
+                <li
+                  id="item"
+                  type="button"
+                  className="btn btn-light p-1 m-2 btn-outline-dark"
+                >
+                  Inicio
+                </li>
+              </Link>
             </li>
             <li className="nav-item">
-              <button
-                type="button"
-                className="btn btn-light p-1 m-2 btn-outline-dark"
-                href="#"
-              >
-                Productos
-              </button>
+              <Link to="/category/Plantas">
+                <a
+                  id="item"
+                  type="button"
+                  className="btn btn-light p-1 m-2 btn-outline-dark"
+                >
+                  Plantas
+                </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <button
-                type="button"
-                className="btn btn-light p-1 m-2  btn-outline-dark"
-                href="#"
-              >
-                Contacto
-              </button>
+              <Link to="/category/ramos">
+                <a
+                  id="item"
+                  type="button"
+                  className="btn btn-light p-1 m-2 btn-outline-dark"
+                >
+                  Ramos
+                </a>
+              </Link>
             </li>
           </ul>
         </div>

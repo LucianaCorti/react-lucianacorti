@@ -1,27 +1,25 @@
-import React from "react"
+import React from "react";
 import { useState } from "react";
 import "./Counter.css";
 
-let stock = 10;
 
-const Counter = ({ onAdd }) => {
-  const [count, setCount] = useState(0);
+const Counter = ({ onAdd, stock }) => {
+  const [number, setNumber] = useState(1);
 
-  const increment = () => {
-    if (count < stock) {
-      setCount(count + 1);
+  const decrement = () => {
+    if (number > 1) {
+      setNumber(number - 1);
     }
   };
 
-  const decrement = () => {
-    if (count > 0) {
-      setCount(count - 1);
+  const increment = () => {
+    if (number < stock) {
+      setNumber(number + 1);
     }
   };
 
   return (
     <div className="divCounter">
-      <h1 className="tituloContador">Contador</h1>
       <div className="divCounter1">
         <button
           type="button"
@@ -31,7 +29,7 @@ const Counter = ({ onAdd }) => {
         >
           +
         </button>
-        <h2 className="numContador">{count}</h2>
+        <h2 className="numContador">{number}</h2>
         <button
           type="button"
           className="btn btn-light p-2 m-3 btn-outline-dark"

@@ -22,7 +22,19 @@ const ItemDetailContainer = () => {
   }, [productId]);
 
   if (loading) {
-    return <h1>Cargando...</h1>;
+    return (
+      <div className="divSpinner">
+      <div className="divSpinner1">
+      <img
+        className="imgSpinner"
+        src={
+          "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1662580958/loading-45_y9vcuk.webp"
+        }
+      />
+      </div>
+      ;
+    </div> 
+    )
   }
 
   return (

@@ -38,3 +38,11 @@
   padding: 10px;
   height: auto;
 }
+
+.detail{
+  text-decoration: none;
+  padding: 0.5rem;
+  color: black;
+  border: solid black 2px;
+  border-radius: 1rem;
+}
