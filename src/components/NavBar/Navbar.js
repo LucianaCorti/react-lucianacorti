@@ -39,7 +39,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/category/Plantas">
+              <Link to="/category/plantas">
                 <a
                   id="item"
                   type="button"
@@ -62,7 +62,11 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
+        <div className="divCarrito">
+        <div>
         <CartWidget />
+        </div>
+        </div>
       </div>
     </nav>
   );

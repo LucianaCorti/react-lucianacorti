@@ -2,6 +2,10 @@
   max-width: 2rem;
 }
 
-.divCarrito{
-    display: flex;
+.divCarrito {
+  display: flex;
+}
+
+.carrito {
+  display: flex;
 }

@@ -1,20 +1,18 @@
-import React from "react";
 import { useState } from "react";
 import "./Counter.css";
 
-
-const Counter = ({ onAdd, stock }) => {
-  const [number, setNumber] = useState(1);
+const Counter = ({ stock, initial = 1, onAdd }) => {
+  const [quantity, setQuantity] = useState(initial);
 
   const decrement = () => {
-    if (number > 1) {
-      setNumber(number - 1);
+    if (quantity > 1) {
+      setQuantity(quantity - 1);
     }
   };
 
   const increment = () => {
-    if (number < stock) {
-      setNumber(number + 1);
+    if (quantity < stock) {
+      setQuantity(quantity + 1);
     }
   };
 
@@ -29,7 +27,7 @@ const Counter = ({ onAdd, stock }) => {
         >
           +
         </button>
-        <h2 className="numContador">{number}</h2>
+        <h2 className="numContador">{quantity}</h2>
         <button
           type="button"
           className="btn btn-light p-2 m-3 btn-outline-dark"
@@ -43,7 +41,7 @@ const Counter = ({ onAdd, stock }) => {
         type="button"
         className="btn btn-light p-2 m-3 btn-outline-dark"
         href="#"
-        onClick={onAdd}
+        onClick={() => onAdd(quantity)}
       >
         Agregar al carrito
       </button>

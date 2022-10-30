@@ -13,3 +13,7 @@
 .container-fluid {
   background-color: #C8DBBE;
 }
+
+.divCarrito{
+  display: flex;
+}

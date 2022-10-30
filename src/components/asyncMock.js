@@ -46,7 +46,7 @@ const products = [
   },
   {
     id: "6",
-    name: "Sansi",
+    name: "Sansevieria",
     price: 1250,
     category: "Plantas",
     img: "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1665513476/feey-k3jEtUmKhJo-unsplash_1_rxceel.jpg",
@@ -82,26 +82,26 @@ const products = [
   }
 ];
 
-export const getProducts = () => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products);
-    }, 1000);
-  });
-};
+// export const getProducts = () => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(products);
+//     }, 1000);
+//   });
+// };
 
-export const getProductById = (id) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products.find((prod) => prod.id === id));
-    }, 500);
-  });
-};
+// export const getProductById = (id) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(products.find((prod) => prod.id === id));
+//     }, 500);
+//   });
+// };
 
-export const getProductsByCategory = (categoryId) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(products.filter((prod) => prod.category === categoryId));
-    }, 500);
-  });
-};
+// export const getProductsByCategory = (categoryId) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(products.filter((prod) => prod.category === categoryId));
+//     }, 500);
+//   });
+// };
