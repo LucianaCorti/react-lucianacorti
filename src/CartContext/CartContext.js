@@ -1,4 +1,5 @@
 import { createContext, useState, useEffect } from "react"
+import Swal from "sweetalert2";
 
 export const CartContext = createContext({
   cart: [],
@@ -15,12 +16,12 @@ export const CartProvider = ({ children }) => {
   useEffect(() => {
     const totalQty = getQuantity()
     setTotalQuantity(totalQty)
-   }, [cart]) //eslint-disable-line
+   }, [cart]) 
 
   useEffect(() => {
     const total = getTotal()
     setTotal(total)
-  }, [cart]) //eslint-disable-line
+  }, [cart]) 
 
 
   const addItem = (productToAdd, quantity) => {
@@ -28,7 +29,7 @@ export const CartProvider = ({ children }) => {
       productToAdd.quantity = quantity
         setCart([...cart, productToAdd])
     } else {
-        console.log('ya esta agregado')
+      Swal.fire('Ya está en el carrito!')
     }
   }
 
@@ -39,6 +40,22 @@ export const CartProvider = ({ children }) => {
   const removeItem = (id) => {
     const cartWithoutItem = cart.filter(prod => prod.id !== id)
     setCart(cartWithoutItem)
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
+      icon: "error",
+      title: "Producto eliminado",
+    });
   }
 
   const getQuantity = () => {

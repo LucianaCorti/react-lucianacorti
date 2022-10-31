@@ -3,10 +3,10 @@ import { useNavigate, Link } from "react-router-dom";
 import Counter from "../Counter/Counter";
 import { CartContext } from "../../CartContext/CartContext";
 import "./ItemDetail.css";
+import Swal from "sweetalert2";
 
-//componente de visualización
 const ItemDetail = ({ id, name, price, img, description, stock }) => {
-  const { addItem, isInCart } = useContext(CartContext);
+  const { addItem} = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleOnAdd = (quantity) => {
@@ -16,18 +16,36 @@ const ItemDetail = ({ id, name, price, img, description, stock }) => {
       price,
       quantity,
     };
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 1500,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener("mouseenter", Swal.stopTimer);
+        toast.addEventListener("mouseleave", Swal.resumeTimer);
+      },
+    });
 
+    Toast.fire({
+      icon: "success",
+      title: "Agregado al carrito",
+    });
     addItem(productToAdd, quantity);
   };
 
   return (
     <div className="divContainerDetail">
       <div className="card1">
-      <div className="imagen">
-        <img src={img} alt={name} className="img" />
+        <div className="imagen">
+          <img src={img} alt={name} className="img" />
         </div>
         <div className="divDescripcion">
-          <button className="btn btn-light p-1 m-2 btn-outline-dark " onClick={() => navigate(-1)}>
+          <button
+            className="btn btn-light p-1 m-2 btn-outline-dark "
+            onClick={() => navigate(-1)}
+          >
             {" "}
             Volver
           </button>
@@ -36,14 +54,9 @@ const ItemDetail = ({ id, name, price, img, description, stock }) => {
           <p className="description">${price}</p>
 
           <div>
-            {/* {
-            isInCart(id)
-            ? <ItemCount onAdd={handleOnAdd} stock={stock}/>
-            : <Link to='/cart'>Finalizar Compra</Link>
-          } */}
+            {}
             <Counter onAdd={handleOnAdd} stock={stock} />
-          
-        </div>
+          </div>
         </div>
       </div>
     </div>

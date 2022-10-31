@@ -3,6 +3,7 @@ import { CartContext } from "../../CartContext/CartContext"
 import { collection, getDocs, query, where, documentId, writeBatch, addDoc } from 'firebase/firestore'
 import { dataBase } from '../../service/firebase/index'
 import { useNavigate } from "react-router-dom"
+import Swal from "sweetalert2";
 
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
@@ -16,6 +17,23 @@ const Checkout = () => {
 
 
     const navigate = useNavigate()
+    const [personalData, setPersonalData] = useState (false) 
+
+    const submit = (e) => {
+        e.preventDefault ();
+        if (!name && !email && !phone && !address)
+            {
+                Swal.fire({
+                    title: "Completa tus datos",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+            
+                })
+            }
+        else 
+        setPersonalData(true);
+        }
 
     const createOrder = async () => {
         setLoading(true)
@@ -69,7 +87,7 @@ const Checkout = () => {
 
                 setTimeout(() => {
                     navigate('/')
-                }, 3000)
+                }, 2000)
 
                 console.log('success', `El id de su orden es: ${orderAdded.id}`)
             } else {
@@ -98,7 +116,19 @@ const Checkout = () => {
                 <input value={phone}onChange={(e) => setPhone(e.target.value)} type="number" className="form-input"   placeholder="Teléfono" />
             </div>
             <h1>Checkout</h1>
-            <button onClick={createOrder}>Generar Pedido</button>
+
+            {   personalData
+                ?<button onClick={createOrder}>Generar Pedido</button>
+
+
+                :  <div>
+                    <p>Complete sus datos</p>
+                    <button onClick={submit}> Almacenar datos </button>
+                </div>
+
+            
+            } 
+            
         </div>
     )
 }

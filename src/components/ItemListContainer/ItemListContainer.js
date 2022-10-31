@@ -50,7 +50,7 @@ const ItemListContainer = ({}) => {
             }
           />
         </div>
-        ;
+        
       </div>
     );
   }
