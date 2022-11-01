@@ -1,20 +1,19 @@
+// import "../asyncMock";
+// import { CartContext } from "../../CartContext/CartContext";
+// import { useContext } from "react";
 
-import "../asyncMock";
-import { CartContext } from "../../CartContext/CartContext";
-import { useContext } from "react";
+// const ItemCart = ({ id, img, name, price, quantity }) => {
+//   const { removeItem } = useContext(CartContext);
 
-const ItemCart = ({ id, img, name, price, quantity }) => {
-  const { removeItem } = useContext(CartContext);
+//   return (
+//     <div className="containerCart">
+//       <img src={img} alt={name} />
+//       <h1 className="name">{name}</h1>
+//       <p className="price">Precio U: ${price}</p>
+//       <p className="SubTotal">Subtotal: ${quantity * price}</p>
+//       <button onClick={() => removeItem(id)}> Eliminar</button>
+//     </div>
+//   );
+// };
 
-  return (
-    <div className="containerCart">
-      <img src={img} alt={name} />
-      <h1 className="name">{name}</h1>
-      <p className="price">Precio U: ${price}</p>
-      <p className="SubTotal">Subtotal: ${quantity * price}</p>
-      <button onClick={() => removeItem(id)}> Eliminar</button>
-    </div>
-  );
-};
-
-export default ItemCart;
+// export default ItemCart;

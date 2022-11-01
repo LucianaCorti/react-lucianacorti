@@ -1,0 +1,10 @@
+.div1{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.tituloCart{
+    text-decoration: underline;
+    text-align: center;
+}
