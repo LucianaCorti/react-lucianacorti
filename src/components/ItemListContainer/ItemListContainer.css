@@ -1,6 +1,7 @@
 .tituloTienda{
     text-align: center;
-    text-decoration: underline;
+    font-family: 'Quicksand', sans-serif;
+    text-decoration: none;
 }
 
 .divSpinner{

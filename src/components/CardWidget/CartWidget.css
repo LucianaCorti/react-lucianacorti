@@ -1,5 +1,6 @@
 .imgCarrito {
-  max-width: 2rem;
+  max-width: 2.8rem;
+  max-height: 2.8rem;
 }
 
 .divCarrito {
@@ -8,4 +9,10 @@
 
 .carrito {
   display: flex;
+}
+
+.totalCarrito{
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
 }

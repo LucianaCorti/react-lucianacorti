@@ -8,24 +8,25 @@ const Cart = () => {
   if (cart.length === 0)
     return (
       <div className="div1">
-        <p> No hay elementos en el carrito </p>
+        <h2> No hay elementos en el carrito </h2>
         <Link to="/" className="btn btn-light p-1 m-2 btn-outline-dark">
           {" "}
-          Ver productos{" "} 
+          Ver productos{" "}
         </Link>
       </div>
     );
   return (
     <div>
       <h3 className="tituloCart"> Productos seleccionados </h3>
-      {cart.map((prod) => (  
-        <div className="div1"> 
+      {cart.map((prod) => (
+        <div key={prod.id} className="div1">
           <h5>{prod.name}</h5>
+
           <div>Cantidad: {prod.quantity}</div>
           <p className="SubTotal">Subtotal: ${prod.quantity * prod.price}</p>
           <button
             className="btn btn-light p-1 m-2 btn-outline-dark"
-            onClick={() => removeItem (prod.id)}
+            onClick={() => removeItem(prod.id)}
           >
             Eliminar
           </button>

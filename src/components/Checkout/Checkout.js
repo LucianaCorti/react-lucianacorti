@@ -20,6 +20,7 @@ const Checkout = () => {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
+  const [checkEmail, setCheckEmail] = useState("");
   const [phone, setPhone] = useState("");
 
   const navigate = useNavigate();
@@ -34,13 +35,15 @@ const Checkout = () => {
         buttons: true,
         dangerMode: true,
       });
+    } else if (email != checkEmail && email && checkEmail) {
+      Swal.fire({
+        title: "Los emails no coinciden",
+        html: "Por favor, intente nuevamente",
+        buttons: true,
+        dangerMode: true,
+      });
     } else setPersonalData(true);
-    Swal.fire({
-      title: "Datos almacenados",
-      icon: "success",
-      buttons: true,
-      dangerMode: true,
-    });
+
   };
 
   const createOrder = async () => {
@@ -119,13 +122,14 @@ const Checkout = () => {
   };
 
   if (loading) {
-    return <h1>Muchas gracias por su compra!</h1>;
+    return <h2 className="text-center">Generando orden...</h2>;
   }
 
   return (
     <div>
-      <h1>Completa los datos para generar la orden.</h1>
-      <div className="myForm1">
+      <h3 className="text-center ">Complete los datos para generar la orden.</h3>
+      <div className="form">
+        <div className="form">
         <input
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -133,13 +137,16 @@ const Checkout = () => {
           className="form-input"
           placeholder="Nombre"
         />
+        </div>
+        <div>
         <input
           value={address}
           onChange={(e) => setAddress(e.target.value)}
           type="text"
           className="form-input"
           placeholder="Dirección"
-        />
+        /></div>
+        <div>
         <input
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -147,6 +154,18 @@ const Checkout = () => {
           className="form-input"
           placeholder="Email"
         />
+        </div>
+        <div>
+        <input
+          value={checkEmail}
+          onChange={(e) => setCheckEmail(e.target.value)}
+          type="Confirme Email"
+          className="form-input"
+          placeholder=" Confirme Email"
+          required
+        />
+        </div>
+        <div>
         <input
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
@@ -154,6 +173,7 @@ const Checkout = () => {
           className="form-input"
           placeholder="Teléfono"
         />
+        </div>
       </div>
       <h1>Checkout</h1>
 

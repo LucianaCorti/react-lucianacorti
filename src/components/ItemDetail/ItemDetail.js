@@ -6,7 +6,7 @@ import "./ItemDetail.css";
 import Swal from "sweetalert2";
 
 const ItemDetail = ({ id, name, price, img, description, stock }) => {
-  const { addItem} = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const navigate = useNavigate();
 
   const handleOnAdd = (quantity) => {
@@ -53,9 +53,16 @@ const ItemDetail = ({ id, name, price, img, description, stock }) => {
           <p className="description">{description}</p>
           <p className="description">${price}</p>
 
-          <div>
+          <div className="div1">
             {}
             <Counter onAdd={handleOnAdd} stock={stock} />
+            <Link
+              to="/cart"
+              className="btn btn-light p-1 m-2 btn-outline-dark "
+            >
+              {" "}
+              Ver carrito
+            </Link>
           </div>
         </div>
       </div>

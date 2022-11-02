@@ -12,6 +12,7 @@
 
 .container-fluid {
   background-color: #C8DBBE;
+  border: solid 0.8rem white;
 }
 
 .divCarrito{

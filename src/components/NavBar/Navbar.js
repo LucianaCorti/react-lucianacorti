@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const src =
-    "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1664230849/Tienda_Cala_sxwto8.png";
+    "https://res.cloudinary.com/dvhvt4yk0/image/upload/v1667417347/Logo_Emprendimiento_Reposter%C3%ADa_Delicado_Blanco_Negro_uej2lm.png";
   return (
     <nav className="navbar navbar-expand-lg">
         <Link to="/">
