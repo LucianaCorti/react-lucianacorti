@@ -1,4 +1,16 @@
 .form{
     display: flex;
     margin: 1rem;
+    text-align: center;
+
+}
+
+.form1{
+    display: flex;
+    max-width: 2rem;
+}
+
+.labelForm{
+    border-radius: 3rem;
+    border: solid black 2rem;
 }

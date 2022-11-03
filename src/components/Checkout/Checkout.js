@@ -28,14 +28,14 @@ const Checkout = () => {
 
   const submit = (e) => {
     e.preventDefault();
-    if (!name && !email && !phone && !address) {
+    if (!name || !email || !phone || !address) {
       Swal.fire({
-        title: "Completa tus datos",
+        title: "Es necesario que complete todos sus datos para continuar",
         icon: "warning",
         buttons: true,
         dangerMode: true,
       });
-    } else if (email != checkEmail && email && checkEmail) {
+    } else if (email !== checkEmail && email && checkEmail) {
       Swal.fire({
         title: "Los emails no coinciden",
         html: "Por favor, intente nuevamente",
@@ -43,7 +43,6 @@ const Checkout = () => {
         dangerMode: true,
       });
     } else setPersonalData(true);
-
   };
 
   const createOrder = async () => {
@@ -122,67 +121,81 @@ const Checkout = () => {
   };
 
   if (loading) {
-    return <h2 className="text-center">Generando orden...</h2>;
+    return <h2 className="text-center">Finalizando compra...</h2>;
   }
 
   return (
     <div>
-      <h3 className="text-center ">Complete los datos para generar la orden.</h3>
-      <div className="form">
-        <div className="form">
-        <input
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          className="form-input"
-          placeholder="Nombre"
-        />
+      <h3 className="text-center ">
+        Complete los datos para generar la orden.
+      </h3>
+      <div className="form text-center">
+        <div className="form text-center">
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            type="text"
+            className="form-label"
+            placeholder="Nombre completo"
+          />
         </div>
         <div>
-        <input
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          type="text"
-          className="form-input"
-          placeholder="Dirección"
-        /></div>
-        <div>
-        <input
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          className="form-input"
-          placeholder="Email"
-        />
+          <input
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            type="text"
+            className="form-label"
+            placeholder="Dirección"
+          />
         </div>
         <div>
-        <input
-          value={checkEmail}
-          onChange={(e) => setCheckEmail(e.target.value)}
-          type="Confirme Email"
-          className="form-input"
-          placeholder=" Confirme Email"
-          required
-        />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            type="email"
+            className="form-label"
+            placeholder="Email"
+          />
         </div>
         <div>
-        <input
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          type="number"
-          className="form-input"
-          placeholder="Teléfono"
-        />
+          <input
+            value={checkEmail}
+            onChange={(e) => setCheckEmail(e.target.value)}
+            type="Confirme Email"
+            className="form-label"
+            placeholder=" Confirme Email"
+            required
+          />
+        </div>
+        <div>
+          <input
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            type="number"
+            className="form-label"
+            placeholder="Teléfono"
+          />
         </div>
       </div>
-      <h1>Checkout</h1>
 
       {personalData ? (
-        <button onClick={createOrder}>Generar Pedido</button>
+        <div className="text-center">
+          <button
+            onClick={createOrder}
+            className="btn btn-light p-1 m-2 btn-outline-dark text-center"
+          >
+            FINALIZAR COMPRA
+          </button>
+        </div>
       ) : (
-        <div>
-          <p>Complete sus datos</p>
-          <button onClick={submit}> Almacenar datos </button>
+        <div className="text-center">
+          <button
+            onClick={submit}
+            className="btn btn-light p-1 m-2 btn-outline-dark text-center"
+          >
+            {" "}
+            Almacenar datos{" "}
+          </button>
         </div>
       )}
     </div>
