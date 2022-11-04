@@ -1,5 +1,7 @@
 <a name="readme-top"></a>
+<div align="center">  
 # Tienda online realizada con REACT
+</div>
 <br />
 <div align="center">  
   <p>Proyecto realizado para simular una tienda online</p>
@@ -10,7 +12,6 @@
 <br />
 <br />
 <br />
-
 Instalación 
 <br />
 > 1. Clonar repositorio
