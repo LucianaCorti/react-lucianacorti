@@ -4,7 +4,7 @@
 </div>
 <br />
 <div align="center">  
-  <p>Proyecto realizado para simular una tienda online</p>
+  <p>El proyecto simula una tienda online</p>
   <p>Fue realizado con React, React Router para su navegación, Firebase para almacenar los datos de cada producto y la orden que realiza el usuario, CSS y Bootstrap. También utilicé la librería SweetAlert para crear alertas estéticas</p>
   <a href="https://github.com/LucianaCorti" target="_blank">
   </a>
@@ -17,10 +17,10 @@ Instalación
 > 1. Clonar repositorio
 git clone https://github.com/LucianaCorti/react-lucianacorti
 <br />
-> 2. Instalación
+> 2. Instalación <br />
 npm i
 <br />
-> 3. Iniciar proyecto
+> 3. Iniciar proyecto <br />
 npm start
 <br />
 

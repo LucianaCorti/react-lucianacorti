@@ -36,7 +36,6 @@ const ItemDetailContainer = () => {
             }
           />
         </div>
-        ;
       </div>
     );
   }
