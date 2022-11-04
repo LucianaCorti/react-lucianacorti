@@ -42,8 +42,15 @@ const Checkout = () => {
         buttons: true,
         dangerMode: true,
       });
-    } else setPersonalData(true);
+    } else {
+      Swal.fire({
+          title: "Datos almacenados",
+          icon: "success",
+          buttons: true,
+      })
+    setPersonalData(true);
   };
+}
 
   const createOrder = async () => {
     setLoading(true);
@@ -102,7 +109,7 @@ const Checkout = () => {
         }, 2000);
 
         Swal.fire(
-          "Muchas gracias por su compra!",
+          "Operacion exitosa!",
           `El id de su orden es: ${orderAdded.id}`
         );
       } else {
@@ -134,8 +141,8 @@ const Checkout = () => {
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            type="text"
-            className="form-label"
+            type="text" 
+            className="form-label border border-5 "
             placeholder="Nombre completo"
           />
         </div>
@@ -144,7 +151,7 @@ const Checkout = () => {
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             type="text"
-            className="form-label"
+            className="form-label border border-5"
             placeholder="Dirección"
           />
         </div>
@@ -153,7 +160,7 @@ const Checkout = () => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="form-label"
+            className="form-label border border-5"
             placeholder="Email"
           />
         </div>
@@ -162,7 +169,7 @@ const Checkout = () => {
             value={checkEmail}
             onChange={(e) => setCheckEmail(e.target.value)}
             type="Confirme Email"
-            className="form-label"
+            className="form-label border border-5"
             placeholder=" Confirme Email"
             required
           />
@@ -171,8 +178,8 @@ const Checkout = () => {
           <input
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            type="number"
-            className="form-label"
+            type="tel"
+            className="form-label border border-5"
             placeholder="Teléfono"
           />
         </div>

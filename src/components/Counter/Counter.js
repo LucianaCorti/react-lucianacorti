@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Counter.css";
+import Swal from "sweetalert2";
 
 const Counter = ({ stock, initial = 1, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
@@ -14,8 +15,15 @@ const Counter = ({ stock, initial = 1, onAdd }) => {
     if (quantity < stock) {
       setQuantity(quantity + 1);
     }
-  };
-
+      else {
+        Swal.fire({
+            title: "No hay mas stock",
+            icon: "warning",
+            buttons: true,
+    
+        })
+}
+};
   return (
     <div className="divCounter">
       <div className="divCounter1">
