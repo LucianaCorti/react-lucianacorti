@@ -21,6 +21,7 @@ git clone https://github.com/LucianaCorti/react-lucianacorti
 npm i
 <br />
 > 3. Iniciar proyecto <br />
+cd app1/
 npm start
 <br />
 
